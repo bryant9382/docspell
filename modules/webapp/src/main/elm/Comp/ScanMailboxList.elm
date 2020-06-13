@@ -8,7 +8,6 @@ module Comp.ScanMailboxList exposing
     )
 
 import Api.Model.ScanMailboxSettings exposing (ScanMailboxSettings)
-import Api.Model.ScanMailboxSettingsList exposing (ScanMailboxSettingsList)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
@@ -41,7 +40,7 @@ update msg model =
 
 
 view : Model -> List ScanMailboxSettings -> Html Msg
-view model items =
+view _ items =
     div []
         [ table [ class "ui  very basic table" ]
             [ thead []
