@@ -8,7 +8,6 @@ module Comp.ScanMailboxList exposing
     )
 
 import Api.Model.ScanMailboxSettings exposing (ScanMailboxSettings)
-import Api.Model.ScanMailboxSettingsList exposing (ScanMailboxSettingsList)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
@@ -41,17 +40,17 @@ update msg model =
 
 
 view : Model -> List ScanMailboxSettings -> Html Msg
-view model items =
+view _ items =
     div []
-        [ table [ class "ui  very basic table" ]
+        [ table [ class "ui very basic center aligned table" ]
             [ thead []
                 [ th [ class "collapsing" ] []
                 , th [ class "collapsing" ]
                     [ i [ class "check icon" ] []
                     ]
+                , th [] [ text "Schedule" ]
                 , th [] [ text "Connection" ]
                 , th [] [ text "Folders" ]
-                , th [] [ text "Schedule" ]
                 , th [] [ text "Received Since" ]
                 , th [] [ text "Target" ]
                 , th [] [ text "Delete" ]
@@ -79,20 +78,21 @@ viewItem item =
             [ Util.Html.checkbox item.enabled
             ]
         , td []
+            [ code []
+                [ text item.schedule
+                ]
+            ]
+        , td []
             [ text item.imapConnection
             ]
         , td []
             [ String.join ", " item.folders |> text
             ]
         , td []
-            [ code []
-                [ text item.schedule
-                ]
-            ]
-        , td []
             [ Maybe.map String.fromInt item.receivedSinceHours
                 |> Maybe.withDefault "-"
                 |> text
+            , text " h"
             ]
         , td []
             [ Maybe.withDefault "-" item.targetFolder
