@@ -46,6 +46,6 @@ There will be one task per file to convert. All these tasks are
 submitted with a low priority. So files uploaded through the webapp or
 a [source](@/docs/webapp/uploading.md#anonymous-upload) with a high
 priority, will be preferred as [configured in the job
-executor](@/docs/joex/_index.md#scheduler-config). This is to not
+executor](@/docs/joex/intro.md#scheduler-config). This is to not
 disturb normal processing when many conversion tasks are being
 executed.
