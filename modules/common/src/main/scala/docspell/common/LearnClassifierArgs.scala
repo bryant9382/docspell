@@ -18,7 +18,7 @@ import io.circe.generic.semiauto._
   * possible tags..
   */
 case class LearnClassifierArgs(
-    collective: Ident
+    collectiveId: CollectiveId
 ) {
 
   def makeSubject: String =
@@ -37,5 +37,4 @@ object LearnClassifierArgs {
 
   def parse(str: String): Either[Throwable, LearnClassifierArgs] =
     str.parseJsonAs[LearnClassifierArgs]
-
 }

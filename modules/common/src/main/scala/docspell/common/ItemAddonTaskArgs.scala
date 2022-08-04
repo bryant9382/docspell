@@ -15,7 +15,7 @@ import io.circe.{Decoder, Encoder}
   * tasks that are configured for 'existing-item' are run.
   */
 final case class ItemAddonTaskArgs(
-    collective: Ident,
+    collective: CollectiveId,
     itemId: Ident,
     addonRunConfigs: Set[Ident]
 )
