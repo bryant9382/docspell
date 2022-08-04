@@ -21,7 +21,7 @@ import io.circe.{Decoder, Encoder}
   * the json data of the corresponding task.
   */
 final case class PeriodicDueItemsArgs(
-    account: AccountId,
+    account: AccountInfo,
     channels: NonEmptyList[ChannelRef],
     remindDays: Int,
     daysBack: Option[Int],
